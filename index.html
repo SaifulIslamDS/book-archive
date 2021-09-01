@@ -11,16 +11,25 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <section class="container mt-4">
+        <h2 class="text-center">The ultimate Book Archive</h2>
+      <div class="row pt-4">
+          <div class="col-md-11">
+            <input type="text" id="search-input" class="form-control" placeholder="Search by your country name" value="" />
+          </div>
+          <div class="col-md-1">
+            <button class="btn btn-success" id="search-btn">Search</button>
+          </div>
+      </div>
+    </section>
     <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Book Archive of JavaScript</h2>
-                </div>
+        <div class="container mt-4">
+            <div id="result-found"></div>
+            <div class="row" id="book-container">
+                <!-- dynamic content from JavaScript API -->
             </div>
         </div>
     </section>
-
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>
