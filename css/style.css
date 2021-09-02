@@ -15,3 +15,7 @@
 .item:hover {
   border: 1px solid #157548;
 }
+
+#spinner {
+  display: none;
+}

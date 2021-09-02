@@ -5,23 +5,40 @@ const resultFound = document.getElementById("result-found");
 const errorDiv = document.getElementById("error-div");
 const bookCover = document.getElementById("book-cover");
 
-//empty content
+/*
+**  Function name: emptyContent  
+**  remove data after clicking search button 
+*/
 const emptyContent = () =>{
     searchInput.value = "";
     bookContainer.innerHTML = "";
     resultFound.innerHTML = "";
 }
-// Capture ddata
+/* 
+**  Function name: toggleSpinner 
+**  Toggle spinner while data loading 
+*/
+
+const toggleSpinner = displayStyle => {
+    const spinner = document.getElementById("spinner");
+    spinner.style.display = displayStyle;
+};
+/* 
+**  Function name: captureInputValues 
+**  Load and capture data from API to display
+*/
+
 const captureInputValues = () => {
     const search =  searchInput.value;
     if (search === "") {
         emptyContent();
         errorDiv.innerHTML = `
-        <p style="color: red;">Search field cannot be empty!</p>
+            <p style="color: red;">Search field cannot be empty!</p>
         `;
         return;
     } else {
         emptyContent();
+        toggleSpinner("block");
         const searchURL = `https://openlibrary.org/search.json?q=${search}`;
         fetch(searchURL)
         .then(res => res.json())
@@ -29,8 +46,12 @@ const captureInputValues = () => {
     }
 };
 
-// store data in this function
-// Loop through data
+/*  
+**  Function name: dataStorage
+**  store data in this function
+**  Loop through data
+*/
+
 const dataStorage = (data) => { 
     if (data.length === 0) {
         // console.log("No data found");
@@ -55,14 +76,8 @@ const dataStorage = (data) => {
             </div>
         `;
         bookContainer.append(bookDiv);
-        })
+        });
+        toggleSpinner("none");
 }
-//Event listener
+// Event listener: execute after clicking search button
 searchBtn.addEventListener("click", captureInputValues);
-
-//Display book covers 
-// const displayBookCover = () => {
-//     bookCover.innerHTML = `
-//     <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" alt="">
-//     `;
-// };
