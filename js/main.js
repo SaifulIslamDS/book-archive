@@ -12,6 +12,7 @@ const emptyContent = () =>{
     searchInput.value = "";
     bookContainer.innerHTML = "";
     resultFound.innerHTML = "";
+    errorDiv.innerHTML = "";
 }
 /* 
 **  Function name: toggleSpinner 
@@ -57,7 +58,7 @@ const captureInputValues = () => {
 const displayData = (data) => { 
     if (data.length !== 0) {
         // enter into this block if input field has value
-        errorDiv.innerText = "";
+        emptyContent();
         // Loop through data
         data.forEach(book => {
             // console.log(book.cover_i);
