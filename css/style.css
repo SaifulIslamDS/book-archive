@@ -5,12 +5,13 @@
 }
 
 .item {
-  background: aqua;
-  border: 1px solid #eee1e1;
+  background: antiquewhite;
+  color: darkblue;
+  border: 1px solid #ffffff;
   padding: 10px;
   height: auto;
   overflow: hidden;
 }
 .item:hover {
-  border: 1px solid #5a0404;
+  border: 1px solid #157548;
 }
