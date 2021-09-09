@@ -4,8 +4,13 @@
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  background-color: lightcyan;
+}
+
+
 .item {
-  background: antiquewhite;
+  background: aqua;
   color: darkblue;
   border: 1px solid #ffffff;
   padding: 10px;

@@ -45,7 +45,7 @@ const captureInputValues = () => {
         const searchURL = `https://openlibrary.org/search.json?q=${search}`;
         fetch(searchURL)
         .then(res => res.json())
-        .then(data => displayData(data.docs));
+        .then(data => displayData(data));
     }
 };
 
@@ -56,13 +56,14 @@ const captureInputValues = () => {
 */
 
 const displayData = (data) => { 
-    if (data.length !== 0) {
+    // console.log(data);
+    if (data.numFound !== 0) {
         // enter into this block if input field has value
         emptyContent();
-        // Loop through data
-        data.forEach(book => {
+        // Loop through data.docs
+        data.docs.forEach(book => {
             // console.log(book.cover_i);
-            resultFound.innerHTML = `<p>${data.length} books found</p>`;
+            resultFound.innerHTML = `<p>${data.numFound} books found</p>`;
             const bookDiv = document.createElement("div");
             bookDiv.classList.add("col-md-3" , "col-12" , "item");
             bookDiv.innerHTML = `
